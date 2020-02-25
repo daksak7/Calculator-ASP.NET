@@ -33,7 +33,10 @@ namespace HMW1_23137564450
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-
+            islem = "*";
+            isSet = true;
+            TextBox1.Text = TextBox1.Text + islem;
+            kontrol = 1;
         }
 
         protected void Button16_Click(object sender, EventArgs e)
@@ -61,6 +64,30 @@ namespace HMW1_23137564450
                             break;
                         case true:
                             sonuc = sonuc - ikincisayi;
+                            break;
+                    }
+                    break;
+                case "*":
+                    switch (sonuckontrol)
+                    {
+                        default:
+                            sonuc = birincisayi * ikincisayi;
+                            sonuckontrol = true;
+                            break;
+                        case true:
+                            sonuc = sonuc * ikincisayi;
+                            break;
+                    }
+                    break;
+                case "/":
+                    switch (sonuckontrol)
+                    {
+                        default:
+                            sonuc = birincisayi / ikincisayi;
+                            sonuckontrol = true;
+                            break;
+                        case true:
+                            sonuc = sonuc / ikincisayi;
                             break;
                     }
                     break;
@@ -405,10 +432,7 @@ namespace HMW1_23137564450
             isSet = true;
             TextBox1.Text = TextBox1.Text + islem;
             kontrol = 1;
-        //    if (kontrol==1) //eğer ortada hesaplanmış bir sonuç varsa eski 2.sayıyı siliyor yeniden kullanabilmek için.
-        //    {
-        //        ikincisayi = 0;
-         //   }
+
         }
 
         protected void Button13_Click(object sender, EventArgs e)
@@ -417,10 +441,15 @@ namespace HMW1_23137564450
             isSet = true;
             TextBox1.Text = TextBox1.Text + islem;
             kontrol = 1;
-         //   if (kontrol==1) //eğer ortada hesaplanmış bir sonuç varsa eski 2.sayıyı siliyor yeniden kullanabilmek için.
-         //   {
-         //       ikincisayi = 0;
-         //   }
+
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            islem = "/";
+            isSet = true;
+            TextBox1.Text = TextBox1.Text + islem;
+            kontrol = 1;
         }
 
         protected void Button15_Click(object sender, EventArgs e)
