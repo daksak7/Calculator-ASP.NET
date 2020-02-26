@@ -16,6 +16,7 @@ namespace HMW1_23137564450
         static int eklemekontrol = 0;
         static Boolean isSet = false;
         static Boolean sonuckontrol = false;
+        static Boolean sifirla = false;  //ekranda sonuç varkenn bir rakama basılırsa kontrolü
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,13 +32,7 @@ namespace HMW1_23137564450
         }
 
 
-        protected void Button9_Click(object sender, EventArgs e)
-        {
-            islem = "*";
-            isSet = true;
-            TextBox1.Text = TextBox1.Text + islem;
-            kontrol = 1;
-        }
+
 
         protected void Button16_Click(object sender, EventArgs e)
         {
@@ -92,14 +87,26 @@ namespace HMW1_23137564450
                     }
                     break;
             }
+            sifirla = true;
+            isSet = true;
             eklemekontrol = 1;
             ikincisayi = 0;
             birincisayi = 0;
             TextBox1.Text = Convert.ToString(sonuc);
+            islem = "";
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
             //2
+            if (sifirla == true) { if (islem == "") {
+                    birincisayi = 0;
+                    ikincisayi = 0;
+                    sonuc = 0;
+                    kontrol = 0;
+                    eklemekontrol = 0;
+                    sonuckontrol = false;
+                    isSet = false;
+                } }
             if (kontrol == 0)  //kontrol değeri birinci sayıyı mı yazıyor ikinciyi mi onu kontrol ediyor.
             {
                 birincisayi = Convert.ToInt32(Convert.ToString(birincisayi) + Convert.ToString(2));
@@ -254,9 +261,10 @@ namespace HMW1_23137564450
                         ikincisayi = Convert.ToInt32(Convert.ToString(ikincisayi) + "5");
                         TextBox1.Text = Convert.ToString(birincisayi) + islem + Convert.ToString(ikincisayi);
                     }
-                    else {
-                    ikincisayi = Convert.ToInt32(Convert.ToString(ikincisayi) + "5");
-                    TextBox1.Text = Convert.ToString(sonuc) + islem + Convert.ToString(ikincisayi);
+                    else
+                    {
+                        ikincisayi = Convert.ToInt32(Convert.ToString(ikincisayi) + "5");
+                        TextBox1.Text = Convert.ToString(sonuc) + islem + Convert.ToString(ikincisayi);
                     }
                 }
             }
@@ -429,27 +437,38 @@ namespace HMW1_23137564450
         protected void Button17_Click(object sender, EventArgs e)
         {
             islem = "+";
-            isSet = true;
+           
             TextBox1.Text = TextBox1.Text + islem;
             kontrol = 1;
+           
 
         }
 
         protected void Button13_Click(object sender, EventArgs e)
         {
             islem = "-";
-            isSet = true;
+          
             TextBox1.Text = TextBox1.Text + islem;
             kontrol = 1;
+           
 
         }
 
         protected void Button5_Click(object sender, EventArgs e)
         {
             islem = "/";
-            isSet = true;
+           
             TextBox1.Text = TextBox1.Text + islem;
             kontrol = 1;
+            
+        }
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            islem = "*";
+         
+            TextBox1.Text = TextBox1.Text + islem;
+            kontrol = 1;
+            
         }
 
         protected void Button15_Click(object sender, EventArgs e)
@@ -460,7 +479,8 @@ namespace HMW1_23137564450
             sonuc = 0;
             kontrol = 0;
             eklemekontrol = 0;
+            sonuckontrol = false;
+            isSet = false;
         }
     }
 }
-    
