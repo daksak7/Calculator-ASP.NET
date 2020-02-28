@@ -26,6 +26,7 @@
         <br />
         <asp:TextBox ID="TextBox1" runat="server" EnableTheming="True" OnTextChanged="TextBox1_TextChanged" ReadOnly="True" Width="181px"></asp:TextBox>
         <br />
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Button ID="Button2" runat="server" Height="40px" Text="1" Width="40px" OnClick="Button2_Click" />
 &nbsp;<asp:Button ID="Button3" runat="server" Height="40px" OnClick="Button3_Click" Text="2" Width="40px" />
